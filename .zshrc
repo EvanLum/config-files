@@ -113,14 +113,15 @@ source $ZSH/oh-my-zsh.sh
 eval "$(starship init zsh)"
 
 ### nVim sudo
-function nvim(){
-OWNER=$(stat -c '%U' $1)
-if [[ "$OWNER" == "root" ]]; then
-doas -- /usr/bin/nvim $*;    # note: [safer] sudo -e forces into edit only mode, does not allow executing cmds
-else
-/usr/bin/nvim $*;
-fi
- }
+function nvim() {
+    local file="$1"
+
+    if [[ -n "$file" && -f "$file" && ! -w "$file" ]]; then
+        doas /usr/bin/nvim "$@"
+    else
+        /usr/bin/nvim "$@"
+    fi
+}
 
 ### ARCHIVE EXTRACTION
 # usage: ex <file>
@@ -224,10 +225,10 @@ alias rm="trash"
 alias rem='"rm"'
 
 # exa
-alias ls="exa --long --no-permissions --time=modified --group-directories-first --icons"
-alias la="exa --long --no-permissions --time=modified --group-directories-first --icons -a"
-alias lr="exa --long --no-permissions --time=modified --group-directories-first --icons -R"
-alias tree="exa --group-directories-first --tree"
+alias ls="eza --long --no-permissions --time=modified --group-directories-first --icons"
+alias la="eza --long --no-permissions --time=modified --group-directories-first --icons -a"
+alias lr="eza --long --no-permissions --time=modified --group-directories-first --icons -R"
+alias tree="eza --group-directories-first --tree"
 
 # cd
 alias ..="cd .."
