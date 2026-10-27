@@ -5,8 +5,6 @@ lua require ('init')
 "Vim-Plug
 call plug#begin()
 
-Plug 'ms-jpq/coq_nvim'
-Plug 'ms-jpq/coq.artifacts'
 Plug 'dracula/vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'yegappan/mru'
@@ -14,7 +12,7 @@ Plug 'preservim/nerdtree'
 Plug 'chr4/nginx.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'farmergreg/vim-lastplace'
 Plug 'wesQ3/vim-windowswap'
@@ -177,3 +175,14 @@ endfunction
 if &term == 'xterm-kitty'
     let &t_ut=''
 endif
+
+"""""""""""""""""
+"LuaLine
+lua << EOF
+require('lualine').setup({
+  options = {
+    theme = 'dracula',
+    icons_enabled = false,
+  }
+})
+EOF
