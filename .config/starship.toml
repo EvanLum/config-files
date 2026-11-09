@@ -69,7 +69,7 @@ format = '[$symbol]($style)'
 style = 'fg:#090c0c bg:#a3aed2'
 
 [os.symbols]
-Windows = ' '
+Windows = '󰍲 '
 Linux = ' '
 Ubuntu = ' '
 Fedora = '  '
