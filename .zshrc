@@ -110,7 +110,9 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 ### STARSHIP
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
+source ~/.starship-init.zsh
+# On starship upgrade run "starship init zsh > ~/.starship-init.zsh"
 
 ### nVim sudo
 function nvim() {
