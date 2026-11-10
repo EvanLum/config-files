@@ -1,6 +1,6 @@
 format = """
 [░▒▓](#a3aed2)\
-[ $custom$os$shell ](bg:#a3aed2 fg:#090c0c)\
+[ $hostname$custom$os$shell ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -91,3 +91,11 @@ command = 'printf "WSL"'
 format = '[$output ]($style)'
 style = 'fg:#090c0c bg:#a3aed2'
 shell = ['sh']
+
+[hostname]
+disabled = false
+ssh_only = true
+ssh_symbol = '󰣀 '
+format = '[$ssh_symbol$hostname ]($style)'
+style = 'fg:#090c0c bg:#a3aed2'
+trim_at = '.'
